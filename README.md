@@ -17,18 +17,45 @@ To run this application, you will need to install the following dependencies in 
 
 ### Installing
 
-To start your Futibas server:
+To start your Futibas server, first, setup your dev environment
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
+```
+cp config/dev.exs.example config/dev.exs
+```
+
+Create and migrate your database
+
+```
+mix ecto.setup
+```
+
+Install Node.js dependencies
+
+```
+cd assets && npm install
+```
+
+Then:
+
+```
+mix phx.server
+```
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 ## Running the tests
 
-Just do `mix test`
+Setup you test environment
+
+```
+cp config/test.exs.example config/test.exs
+```
+
+And run
+
+```
+mix test
+```
 
 ## Deployment
 
