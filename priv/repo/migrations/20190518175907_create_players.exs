@@ -10,6 +10,5 @@ defmodule Futibas.Repo.Migrations.CreatePlayers do
 
       timestamps()
     end
-
   end
 end

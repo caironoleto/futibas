@@ -7,7 +7,12 @@ defmodule Futibas.ClubsTest do
     alias Futibas.Clubs.Player
 
     @valid_attrs %{external_id: 42, name: "some name", overall: 42, positions: ["ST", "CAM"]}
-    @update_attrs %{external_id: 43, name: "some updated name", overall: 43, positions: ["MEI", "MC"]}
+    @update_attrs %{
+      external_id: 43,
+      name: "some updated name",
+      overall: 43,
+      positions: ["MEI", "MC"]
+    }
     @invalid_attrs %{external_id: nil, name: nil, overall: nil, positions: nil}
 
     def player_fixture(attrs \\ %{}) do
