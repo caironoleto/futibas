@@ -101,4 +101,28 @@ defmodule Futibas.Clubs do
   def change_player(%Player{} = player) do
     Player.changeset(player, %{})
   end
+
+  @doc """
+  Create or update the given players.
+  """
+  def create_or_update_players([]) do
+    IO.inspect("finished")
+  end
+
+  def create_or_update_players([%{} = player_changset | players]) do
+    result =
+      case Repo.get_by(Player, external_id: player_changset.external_id) do
+        nil -> %Player{}
+        player -> player
+      end
+      |> Player.changeset(player_changset)
+      |> Repo.insert_or_update()
+
+    case result do
+      {:ok, player} -> IO.inspect(":ok - #{player.name}")
+      {:error, _} -> IO.inspect(":error - #{player_changset.name}")
+    end
+
+    create_or_update_players(players)
+  end
 end
